@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class ArrayRotation {
 
+    //  Rotate an array with one cycle
     static void rotate(int [] arr){
 
         System.out.println("Original Array: " + Arrays.toString(arr));
