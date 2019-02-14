@@ -27,6 +27,8 @@ public class ArrayRotation {
         int [] arr = {1, 2, 3, 4, 5};
         rotate(arr);
         rotate(arr);
+        rotate(arr);
+        rotate(arr);
     }
 
 }
