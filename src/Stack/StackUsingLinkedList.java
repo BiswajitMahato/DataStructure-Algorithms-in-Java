@@ -1,5 +1,11 @@
-package LinkedList;
-
+package Stack;
+/**
+ * Date 08/24/2019
+ * @author Biswajit Mahato
+ *
+ * Implement a stack using a linked list
+ *
+ */
 public class StackUsingLinkedList {
 
     Node head= null;

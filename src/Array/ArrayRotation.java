@@ -2,6 +2,11 @@ package Array;
 
 import java.util.Arrays;
 
+/*
+
+@Author : Biswajit Mahato
+
+ */
 public class ArrayRotation {
 
     //  Rotate an array with one cycle
