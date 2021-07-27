@@ -1,15 +1,14 @@
 package LinkedList;
 /**
- * Date 04/07/2020
+ * Date 02/10/2020
  * @author Biswajit Mahato
  *
- * Insert a node in the given sorted linked list
+ * Implementation of a Reverse linked list
  *
- * Objective: Given a linked list in which nodes are sorted in ascending order. Write an algorithm to insert a given
- *            node into the linked list so that all the nodes in the list will maintain the sorted order.
  */
-public class InsertNodeInSortedList {
+public class ReverseLinkedList {
 
+    public static Node head = null;
     // Node Class
     static class Node{
         int data;
@@ -20,7 +19,7 @@ public class InsertNodeInSortedList {
         }
     }
 
-    public void insertNode(Node head, Node node){
+    public  void insertNode(Node head, Node node){
 
         System.out.print("Given Linked List: ");
         display(head);
@@ -29,35 +28,42 @@ public class InsertNodeInSortedList {
         System.out.print("New List: ");
         display(head);
         System.out.println("\n-----------------------------------------");
+        Node reversedHead = reverseLinkedList(head);
+        System.out.println(" Reverse Lisnked List:");
+        display(reversedHead);
+        System.out.println("\n****************************************************");
 
     }
 
+    // Insert node in the Linked List
     private Node insertNodeUtil(Node head, Node node) {
 
-        if(head == null) {
+        if (head == null){
+
             head = node;
-        } else if(head.data >= node.data){
-            node.next = head;
-            head = node;
-        } else{
+
+        }
+        else{
             Node current = head;
-            while(current.next != null && current.next.data < node.data){
+            while(current.next != null){
                 current = current.next;
             }
             node.next = current.next;
             current.next = node;
+
         }
+
         return head;
 
     }
 
+    // Display the nodes in the Linked List
     private void display(Node head) {
 
-        if(head == null){
-            System.out.print("Linked list is Empty");
-            return;
+        if (head == null){
+            System.out.println("Linked List is empty !");
         }
-        Node currNode = head;
+       Node currNode = head;
         while (currNode != null) {
             System.out.print(" -> " + currNode.data);
             currNode = currNode.next;
@@ -65,19 +71,28 @@ public class InsertNodeInSortedList {
 
     }
 
+    // Reverse Linked List Function
+    private Node reverseLinkedList(Node current) {
+
+        // Checking the head of the list
+        if (current == null){
+            return null;
+        }
+        //
+        if(current.next==null){
+            head = current;
+            return null;
+        }
+        //
+        reverseLinkedList(current.next);
+        current.next.next = current;
+        current.next = null;
+
+        return head;
+    }
+
     public static void main(String[] args) {
-        InsertNodeInSortedList i = new InsertNodeInSortedList();
-        Node head = null;
-        Node node = new Node(5);
-        i.insertNode(head, node);
-
-        Node head1 = new Node(7);
-        Node node1 = new Node(4);
-        i.insertNode(head1, node1);
-
-        Node head2 = new Node(2);
-        Node node2 = new Node(6);
-        i.insertNode(head2, node2);
+        ReverseLinkedList i = new ReverseLinkedList();
 
         Node head3 = new Node(1);
         head3.next = new Node(2);
@@ -86,12 +101,7 @@ public class InsertNodeInSortedList {
         head3.next.next.next.next = new Node(10);
         Node node3 = new Node(5);
         i.insertNode(head3, node3);
-
-        Node node4 = new Node(50);
-        i.insertNode(head3, node4);
+        i.reverseLinkedList(head3);
     }
 
-
 }
-
-
