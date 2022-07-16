@@ -21,7 +21,7 @@ public class Array_TwoNumberSum {
         int left = 0;
         int right = arr.length -1;
         Arrays.sort(arr);
-        int[] result = new int[arr.length -1];
+        int[] result;
         int currentSum=0;
         int i=0;
         while (left <right){
